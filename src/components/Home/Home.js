@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Box } from '@mui/material';
-import Calender from '../Calender/Calender';
+import CalenderContainer from '../CalenderContainer/CalenderContainer';
 import TimeContainer from '../TimeContainer/TimeContainer';
 
 const Home = () => {
   const [entryTime, setEntryTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
+  const [myEventsList, setMyEventsList] = useState([]);
+
   return (
     <Box sx={{ my: 2 }}>
       <TimeContainer
@@ -13,9 +15,15 @@ const Home = () => {
         setEntryTime={setEntryTime}
         endTime={endTime}
         setEndTime={setEndTime}
+        myEventsList={myEventsList}
+        setMyEventsList={setMyEventsList}
       />
 
-      <Calender entryTime={entryTime} endTime={endTime} />
+      <CalenderContainer
+        entryTime={entryTime}
+        endTime={endTime}
+        myEventsList={myEventsList}
+      />
     </Box>
   );
 };
